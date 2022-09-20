@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "swiftui-96x96_2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
