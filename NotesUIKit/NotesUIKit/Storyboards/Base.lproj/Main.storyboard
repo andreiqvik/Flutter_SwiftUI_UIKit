@@ -147,7 +147,7 @@
         <scene sceneID="7Ug-el-pVS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7PM-ow-ZUZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite notes" image="heart" catalog="system" selectedImage="heart" id="M6f-6t-6lP"/>
+                    <tabBarItem key="tabBarItem" title="Favorite notes" image="heart.fill" catalog="system" selectedImage="heart.fill" id="M6f-6t-6lP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EEd-ih-dVS">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -167,7 +167,7 @@
         <segue reference="woY-dg-Qz2"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
