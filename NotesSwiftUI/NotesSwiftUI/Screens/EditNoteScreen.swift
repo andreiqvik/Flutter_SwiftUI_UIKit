@@ -12,6 +12,7 @@ struct EditNoteScreen: View {
     
     // MARK: - Model
     let note: Note
+    @State private var content: String = "Note"
     
     // MARK: - INITIALIZERS
     init(note: Note) {
@@ -20,7 +21,7 @@ struct EditNoteScreen: View {
     
     // MARK: - BODY
     var body: some View {
-        Text("Edit notes")            .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
+        TextEditor(text: $content)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
     }
 }
 
