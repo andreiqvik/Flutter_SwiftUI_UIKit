@@ -11,6 +11,8 @@
 		7511DE7528D9BF9200C69904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511DE7428D9BF9200C69904 /* ContentView.swift */; };
 		7511DE7728D9BF9300C69904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7511DE7628D9BF9300C69904 /* Assets.xcassets */; };
 		7511DE7B28D9BF9300C69904 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7511DE7A28D9BF9300C69904 /* Preview Assets.xcassets */; };
+		7511DE8528D9C05500C69904 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511DE8428D9C05500C69904 /* Note.swift */; };
+		7511DE8728D9C05D00C69904 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511DE8628D9C05D00C69904 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		7511DE7628D9BF9300C69904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7511DE7828D9BF9300C69904 /* NotesSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotesSwiftUI.entitlements; sourceTree = "<group>"; };
 		7511DE7A28D9BF9300C69904 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7511DE8428D9C05500C69904 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		7511DE8628D9C05D00C69904 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 		7511DE7128D9BF9200C69904 /* NotesSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				7511DE7228D9BF9200C69904 /* NotesSwiftUIApp.swift */,
+				7511DE8128D9C02C00C69904 /* App lifecycle */,
+				7511DE8228D9C03B00C69904 /* Models */,
+				7511DE8328D9C04000C69904 /* Data store */,
 				7511DE7428D9BF9200C69904 /* ContentView.swift */,
 				7511DE7628D9BF9300C69904 /* Assets.xcassets */,
 				7511DE7828D9BF9300C69904 /* NotesSwiftUI.entitlements */,
@@ -67,6 +73,30 @@
 				7511DE7A28D9BF9300C69904 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7511DE8128D9C02C00C69904 /* App lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				7511DE7228D9BF9200C69904 /* NotesSwiftUIApp.swift */,
+			);
+			path = "App lifecycle";
+			sourceTree = "<group>";
+		};
+		7511DE8228D9C03B00C69904 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7511DE8428D9C05500C69904 /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7511DE8328D9C04000C69904 /* Data store */ = {
+			isa = PBXGroup;
+			children = (
+				7511DE8628D9C05D00C69904 /* DataStore.swift */,
+			);
+			path = "Data store";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7511DE7528D9BF9200C69904 /* ContentView.swift in Sources */,
+				7511DE8728D9C05D00C69904 /* DataStore.swift in Sources */,
 				7511DE7328D9BF9200C69904 /* NotesSwiftUIApp.swift in Sources */,
+				7511DE8528D9C05500C69904 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
