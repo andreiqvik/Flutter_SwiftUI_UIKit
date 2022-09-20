@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="URJ-at-Nv0">
-                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <rect key="frame" x="8" y="99" width="374" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -91,10 +91,10 @@
                         <viewLayoutGuide key="safeArea" id="5bs-yQ-rOo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="trailing" secondItem="URJ-at-Nv0" secondAttribute="trailing" id="EYO-pD-oQ8"/>
-                            <constraint firstItem="URJ-at-Nv0" firstAttribute="top" secondItem="5bs-yQ-rOo" secondAttribute="top" id="Qeu-li-fzY"/>
-                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="bottom" secondItem="URJ-at-Nv0" secondAttribute="bottom" id="i8l-hz-Gbn"/>
-                            <constraint firstItem="URJ-at-Nv0" firstAttribute="leading" secondItem="5bs-yQ-rOo" secondAttribute="leading" id="jdm-cj-gS3"/>
+                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="trailing" secondItem="URJ-at-Nv0" secondAttribute="trailing" constant="8" id="EYO-pD-oQ8"/>
+                            <constraint firstItem="URJ-at-Nv0" firstAttribute="top" secondItem="5bs-yQ-rOo" secondAttribute="top" constant="8" id="Qeu-li-fzY"/>
+                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="bottom" secondItem="URJ-at-Nv0" secondAttribute="bottom" constant="8" id="i8l-hz-Gbn"/>
+                            <constraint firstItem="URJ-at-Nv0" firstAttribute="leading" secondItem="5bs-yQ-rOo" secondAttribute="leading" constant="8" id="jdm-cj-gS3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="HCj-qT-fwb"/>

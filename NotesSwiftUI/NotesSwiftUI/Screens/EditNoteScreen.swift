@@ -21,7 +21,7 @@ struct EditNoteScreen: View {
     
     // MARK: - BODY
     var body: some View {
-        TextEditor(text: $content)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
+        TextEditor(text: $content).padding(.all)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
     }
 }
 
