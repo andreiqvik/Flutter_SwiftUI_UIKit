@@ -21,23 +21,11 @@ struct NoteCell: View {
     
     // MARK: - BODY
     var body: some View {
-        VStack {
-            HStack(spacing: 5) {
-                Button(action: {
-                    
-                }, label: {
-                    Label("", systemImage: note.isFavorite ? "heart.fill" : "heart")
-                })
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(note.title ?? "").font(.headline)
-                    Text(note.subtitle ?? "").font(.subheadline)
-                }
-            }
-        }
+        NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite)
     }
 }
 
-struct NoteView_Previews: PreviewProvider {
+struct NoteCell_Previews: PreviewProvider {
     static var previews: some View {
         let note = Constants.testNote
         note.isFavorite = true
