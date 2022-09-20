@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="-95" y="6"/>
         </scene>
-        <!--Item 1-->
+        <!--All notes-->
         <scene sceneID="T1A-Mt-ReV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ACt-Bk-vHG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="zJg-Wv-PUK"/>
+                    <tabBarItem key="tabBarItem" title="All notes" image="list.bullet" catalog="system" selectedImage="list.bullet" id="zJg-Wv-PUK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bqz-pm-d25">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -99,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="810.76923076923072" y="-296.44549763033172"/>
         </scene>
-        <!--Item 2-->
+        <!--Favorite notes-->
         <scene sceneID="7Ug-el-pVS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7PM-ow-ZUZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="M6f-6t-6lP"/>
+                    <tabBarItem key="tabBarItem" title="Favorite notes" image="heart" selectedImage="heart" catalog="system" id="M6f-6t-6lP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EEd-ih-dVS">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -123,6 +123,9 @@
         <segue reference="ci8-nW-Tvb"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart" width="128" height="128"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
