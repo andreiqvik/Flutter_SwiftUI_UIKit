@@ -8,22 +8,65 @@
 import UIKit
 
 class AllNotesViewController: UIViewController {
+    
+    // MARK: - PROPERTIES
+    
+    // MARK: - @IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Model
+    private let notes = DataStore.shared.getAllNotes()
+    
+    // MARK: - METHODS
 
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Set tableview data source and delegate
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        // Register cell's xib
+        tableView.register(NoteTableViewCell.nib, forCellReuseIdentifier: NoteTableViewCell.identifier)
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let note = sender as? Note else {
+            return
+        }
+        
+        if segue.identifier == Constants.toEditNoteSegue {
+            let vc = segue.destination as! EditNoteViewController
+            vc.note = note
+        }
     }
-    */
+}
 
+// MARK: - EXTENSIONS
+
+// MARK: - UITableViewDataSource
+extension AllNotesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.identifier, for: indexPath) as! NoteTableViewCell
+        let note = notes[indexPath.row]
+        cell.titleLabel.text = note.title
+        cell.bodyLabel.text = note.subtitle
+        cell.isFavorite = note.isFavorite
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension AllNotesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = notes[indexPath.row]
+        performSegue(withIdentifier: Constants.toEditNoteSegue, sender: note)
+    }
 }

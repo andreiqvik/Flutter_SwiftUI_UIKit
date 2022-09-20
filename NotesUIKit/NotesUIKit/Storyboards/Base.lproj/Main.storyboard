@@ -15,11 +15,24 @@
                     <view key="view" contentMode="scaleToFill" id="h4j-9W-xwx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="p56-iS-bCK">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mq6-49-RK1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mq6-49-RK1" firstAttribute="bottom" secondItem="p56-iS-bCK" secondAttribute="bottom" id="2KW-OW-Mqa"/>
+                            <constraint firstItem="p56-iS-bCK" firstAttribute="leading" secondItem="mq6-49-RK1" secondAttribute="leading" id="BTq-Kz-T8K"/>
+                            <constraint firstItem="mq6-49-RK1" firstAttribute="trailing" secondItem="p56-iS-bCK" secondAttribute="trailing" id="YQs-Hf-TCx"/>
+                            <constraint firstItem="p56-iS-bCK" firstAttribute="top" secondItem="mq6-49-RK1" secondAttribute="top" id="hxv-G9-9Wx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorite notes" id="Dc8-c6-ChY"/>
                     <connections>
+                        <outlet property="tableView" destination="p56-iS-bCK" id="Ksg-oy-kaa"/>
                         <segue destination="jYW-An-Ewa" kind="show" identifier="toEditNote" id="ci8-nW-Tvb"/>
                     </connections>
                 </viewController>
@@ -34,11 +47,24 @@
                     <view key="view" contentMode="scaleToFill" id="9Do-iP-Zei">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-8G-42K">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lU9-yv-RXk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dfs-8G-42K" firstAttribute="leading" secondItem="lU9-yv-RXk" secondAttribute="leading" id="KVS-iL-SKj"/>
+                            <constraint firstItem="lU9-yv-RXk" firstAttribute="trailing" secondItem="dfs-8G-42K" secondAttribute="trailing" id="NwT-ak-1YB"/>
+                            <constraint firstItem="lU9-yv-RXk" firstAttribute="bottom" secondItem="dfs-8G-42K" secondAttribute="bottom" id="iXK-y3-REc"/>
+                            <constraint firstItem="dfs-8G-42K" firstAttribute="top" secondItem="lU9-yv-RXk" secondAttribute="top" id="kro-kb-r7j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="sko-DZ-p8O"/>
                     <connections>
+                        <outlet property="tableView" destination="dfs-8G-42K" id="puz-VD-poe"/>
                         <segue destination="jYW-An-Ewa" kind="show" identifier="toEditNote" id="woY-dg-Qz2"/>
                     </connections>
                 </viewController>
@@ -46,17 +72,35 @@
             </objects>
             <point key="canvasLocation" x="1740" y="-296.44549763033172"/>
         </scene>
-        <!--Edit Note View Controller-->
+        <!--Edit-->
         <scene sceneID="7KR-1a-hLp">
             <objects>
                 <viewController id="jYW-An-Ewa" customClass="EditNoteViewController" customModule="NotesUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1mn-5q-VyL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="URJ-at-Nv0">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5bs-yQ-rOo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="trailing" secondItem="URJ-at-Nv0" secondAttribute="trailing" id="EYO-pD-oQ8"/>
+                            <constraint firstItem="URJ-at-Nv0" firstAttribute="top" secondItem="5bs-yQ-rOo" secondAttribute="top" id="Qeu-li-fzY"/>
+                            <constraint firstItem="5bs-yQ-rOo" firstAttribute="bottom" secondItem="URJ-at-Nv0" secondAttribute="bottom" id="i8l-hz-Gbn"/>
+                            <constraint firstItem="URJ-at-Nv0" firstAttribute="leading" secondItem="5bs-yQ-rOo" secondAttribute="leading" id="jdm-cj-gS3"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HCj-qT-fwb"/>
+                    <navigationItem key="navigationItem" title="Edit" id="HCj-qT-fwb"/>
+                    <connections>
+                        <outlet property="textView" destination="URJ-at-Nv0" id="2eB-fS-Eu1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1E-7E-F4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,11 +164,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ci8-nW-Tvb"/>
+        <segue reference="woY-dg-Qz2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

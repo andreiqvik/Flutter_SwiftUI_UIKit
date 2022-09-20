@@ -8,22 +8,19 @@
 import UIKit
 
 class EditNoteViewController: UIViewController {
-
+    
+    // MARK: - PROPERTIES
+    
+    // MARK: - @IBOutlets
+    @IBOutlet weak var textView: UITextView!
+    
+    // MARK: - Model
+    var note: Note!
+    
+    // MARK: - METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        textView.text = note.content
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
