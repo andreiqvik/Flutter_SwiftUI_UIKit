@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainTabsScreen.swift
 //  NotesSwiftUI
 //
 //  Created by Andrei Sadovnicov on 20.9.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainTabsScreen: View {
     var body: some View {
         TabView {
             AllNotesScreen()
@@ -24,6 +24,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainTabsScreen()
     }
 }

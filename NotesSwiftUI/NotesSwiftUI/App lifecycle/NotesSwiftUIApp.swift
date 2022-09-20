@@ -11,7 +11,7 @@ import SwiftUI
 struct NotesSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainTabsScreen()
         }
     }
 }

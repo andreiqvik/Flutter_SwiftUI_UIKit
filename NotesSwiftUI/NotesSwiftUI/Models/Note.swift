@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Note {
+class Note: Identifiable {
     // MARK: - PROPERTIES
     var content: String = ""
     var title: String?

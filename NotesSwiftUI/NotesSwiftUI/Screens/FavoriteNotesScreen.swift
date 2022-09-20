@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct FavoriteNotesScreen: View {
+    // MARK: - PROPERTIES
+    
+    // MARK: - Model
+    private let notes = DataStore.shared.getFavoriteNotes()
+    
+    // MARK: - BODY
     var body: some View {
         NavigationView {
-            Text("Favorite notes")
+            List {
+                ForEach (notes) { note in
+                    NavigationLink(destination: {
+                        EditNoteScreen(note: note)
+                    }, label: {
+                        NoteCell(note: note)
+                    })
+                }
+            }
+            .scrollContentBackground(.hidden)
             .navigationBarTitle("Favorite notes").navigationBarTitleDisplayMode(.inline)
         }
     }
