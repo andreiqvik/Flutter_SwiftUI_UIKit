@@ -9,4 +9,6 @@ import Foundation
 
 class Constants {
     static let testNote = Note(content: "Title\nSubtitle")
+    static let defaultNoteContent = "New note"
+    static let lastUpdateKeyPath = "lastUpdate"
 }

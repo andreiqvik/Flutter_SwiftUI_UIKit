@@ -26,7 +26,7 @@ class Note: Object, ObjectKeyIdentifiable {
     }
     
     // MARK: - METHODS
-    private func setTitleAndSubtitle() {
+    func setTitleAndSubtitle() {
         let rows = content.components(separatedBy: CharacterSet.newlines)
         title = rows.first
         subtitle = rows.count > 1 ? rows[1] : nil

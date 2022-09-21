@@ -7,34 +7,60 @@
 
 import Foundation
 
+import Foundation
+import RealmSwift
+
 class DataStore {
+    
+    // MARK: - PROPERTIES
     
     // MARK: - Singleton
     static let shared = DataStore()
     
-    // MARK: - READ
-    func getAllNotes() -> [Note] {
-        return [
-            Note(content: "Note 1", isFavorite: true),
-            Note(content: "Note 2", isFavorite: false),
-            Note(content: """
-            Note 3
-            Subtitle
-            """,
-            isFavorite: false),
-        ]
-    }
+    // MARK: - Realm
+    private let realm = try! Realm()
     
-    func getFavoriteNotes() -> [Note] {
-        let allNotes = getAllNotes()
-        return allNotes.filter{$0.isFavorite}
-    }
+    // MARK: - METHODS
     
     // MARK: - CREATE
+    func addNote() {
+        let note = Note(content: Constants.defaultNoteContent)
+        try! realm.write {
+            realm.add(note)
+        }
+    }
+    
+    // MARK: - READ
+    func getAllNotes() -> Results<Note> {
+        return realm.objects(Note.self).sorted(byKeyPath: Constants.lastUpdateKeyPath, ascending: false)
+    }
+    
+    func getFavoriteNotes() -> Results<Note> {
+        return realm.objects(Note.self).where{$0.isFavorite == true}.sorted(byKeyPath: Constants.lastUpdateKeyPath, ascending: false)
+    }
     
     // MARK: - UPDATE
+    func toggleFavorite(for note: Note) {
+        try! realm.write() {
+            note.isFavorite.toggle()
+        }
+    }
+    
+    func update(_ note: Note, content: String? = nil) {
+        try! realm.write {
+            note.lastUpdate = Date()
+            if let content = content {
+                note.content = content
+                note.setTitleAndSubtitle()
+            }
+        }
+    }
     
     // MARK: - DELETE
+    func delete(_ note: Note) {
+        try! realm.write {
+            realm.delete(note)
+        }
+    }
     
 }
-

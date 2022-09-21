@@ -49,9 +49,7 @@ class DataStore {
             note.lastUpdate = Date()
             if let content = content {
                 note.content = content
-                let rows = content.split(separator: "\n").map{String($0)}
-                note.title = rows.first
-                note.subtitle = rows.count > 1 ? rows[1] : nil
+                note.setTitleAndSubtitle()
             }
         }
     }
