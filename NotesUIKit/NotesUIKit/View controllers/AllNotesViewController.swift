@@ -18,7 +18,7 @@ class AllNotesViewController: UIViewController {
     // MARK: - Model
     private let dataStore = DataStore.shared
     private let notes = DataStore.shared.getAllNotes()
-    private var notificationToken: NotificationToken?
+    private var notificationToken: NotificationToken!
     
     // MARK: - METHODS
 
@@ -69,6 +69,8 @@ extension AllNotesViewController: UITableViewDataSource {
         cell.titleLabel.text = note.title
         cell.bodyLabel.text = note.subtitle
         cell.isFavorite = note.isFavorite
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
 }
@@ -78,6 +80,19 @@ extension AllNotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = notes[indexPath.row]
         performSegue(withIdentifier: Constants.toEditNoteSegue, sender: note)
+        dataStore.update(note)
+    }
+}
+
+// MARK: - NoteTableViewCellDelegate
+extension AllNotesViewController: NoteTableViewCellDelegate {
+    func favoriteButtonTapped(at indexPath: IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        
+        let note = notes[indexPath.row]
+        dataStore.toggleFavorite(for: note)
     }
 }
 

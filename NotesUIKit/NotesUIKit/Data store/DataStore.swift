@@ -33,14 +33,13 @@ class DataStore {
         return realm.objects(Note.self).sorted(byKeyPath: Constants.lastUpdateKeyPath, ascending: false)
     }
     
-    func getFavoriteNotes() -> [Note] {
-        let allNotes = getAllNotes()
-        return allNotes.filter{$0.isFavorite}
+    func getFavoriteNotes() -> Results<Note> {
+        return realm.objects(Note.self).where{$0.isFavorite == true}.sorted(byKeyPath: Constants.lastUpdateKeyPath, ascending: false)
     }
     
     // MARK: - UPDATE
     func toggleFavorite(for note: Note) {
-        try! realm.write {
+        try! realm.write() {
             note.isFavorite.toggle()
         }
     }
@@ -50,7 +49,9 @@ class DataStore {
             note.lastUpdate = Date()
             if let content = content {
                 note.content = content
-                
+                let rows = content.split(separator: "\n").map{String($0)}
+                note.title = rows.first
+                note.subtitle = rows.count > 1 ? rows[1] : nil
             }
         }
     }

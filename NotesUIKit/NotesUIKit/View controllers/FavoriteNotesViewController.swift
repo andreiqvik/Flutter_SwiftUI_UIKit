@@ -17,8 +17,8 @@ class FavoriteNotesViewController: UIViewController {
     
     // MARK: - Model
     private let dataStore = DataStore.shared
-    private let notes = DataStore.shared.getAllNotes()
-    private var notificationToken: NotificationToken?
+    private let notes = DataStore.shared.getFavoriteNotes()
+    private var notificationToken: NotificationToken!
     
     // MARK: - METHODS
     
@@ -64,6 +64,8 @@ extension FavoriteNotesViewController: UITableViewDataSource {
         cell.titleLabel.text = note.title
         cell.bodyLabel.text = note.subtitle
         cell.isFavorite = note.isFavorite
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
 }
@@ -73,6 +75,18 @@ extension FavoriteNotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = notes[indexPath.row]
         performSegue(withIdentifier: Constants.toEditNoteSegue, sender: note)
+    }
+}
+
+// MARK: - NoteTableViewCellDelegate
+extension FavoriteNotesViewController: NoteTableViewCellDelegate {
+    func favoriteButtonTapped(at indexPath: IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+
+        let note = notes[indexPath.row]
+        dataStore.toggleFavorite(for: note)
     }
 }
 
