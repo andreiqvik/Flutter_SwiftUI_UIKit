@@ -16,6 +16,9 @@ struct EditNoteScreen: View {
     @State private var content: String = ""
     let dataStore = DataStore.shared
     
+    // MARK: - Environment variables
+    @Environment(\.presentationMode) var presentationMode
+    
     // MARK: - BODY
     var body: some View {
         TextEditor(text: $content)
@@ -25,6 +28,8 @@ struct EditNoteScreen: View {
             .padding(.all)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
+                    dataStore.delete(note)
+                    self.presentationMode.wrappedValue.dismiss()
                     
                 }, label: {
                     Label("", systemImage: "trash")

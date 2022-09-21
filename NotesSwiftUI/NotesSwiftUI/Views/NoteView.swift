@@ -12,12 +12,14 @@ struct NoteView: View {
     let title: String?
     let subtitle: String?
     let isFavorite: Bool
+    let action: () -> Void
     
     // MARK: - INITIALIZERS
-    init(title: String?, subtitle: String?, isFavorite: Bool) {
+    init(title: String?, subtitle: String?, isFavorite: Bool, action: @escaping () -> Void) {
         self.title = title
         self.subtitle = subtitle
         self.isFavorite = isFavorite
+        self.action = action
     }
     
     // MARK: - BODY
@@ -25,7 +27,7 @@ struct NoteView: View {
         VStack {
             HStack(spacing: 5) {
                 Button(action: {
-                    
+                    action()
                 }, label: {
                     Label("", systemImage: isFavorite ? "heart.fill" : "heart")
                 })
@@ -41,6 +43,6 @@ struct NoteView: View {
 struct NoteView_Previews: PreviewProvider {
     static var previews: some View {
         let note = Constants.testNote
-        NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite)
+        NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite, action: {})
     }
 }

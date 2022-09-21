@@ -62,6 +62,10 @@ class DataStore {
     
     // MARK: - DELETE
     func delete(_ note: Note) {
+        guard let note = note.thaw() else {
+            return
+        }
+        
         try! realm.write {
             realm.delete(note)
         }

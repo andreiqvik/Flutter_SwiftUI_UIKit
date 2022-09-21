@@ -14,7 +14,7 @@ struct FavoriteNotesScreen: View {
     // MARK: - Model
     @ObservedResults(
       Note.self,
-      where: { $0.isFavorite == false }
+      where: { $0.isFavorite == true }
     ) var notes
     
     // MARK: - BODY

@@ -6,22 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NoteCell: View {
     
     // MARK: - PROPERTIES
     
     // MARK: - Model
-    let note: Note
-    
-    // MARK: - INITIALIZERS
-    init(note: Note) {
-        self.note = note
-    }
+    @ObservedRealmObject var note: Note
+    let dataStore = DataStore.shared
     
     // MARK: - BODY
     var body: some View {
-        NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite)
+        NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite, action: {
+            dataStore.toggleFavorite(for: note)
+        })
     }
 }
 
