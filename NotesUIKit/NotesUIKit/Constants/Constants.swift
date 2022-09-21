@@ -9,5 +9,7 @@ import Foundation
 
 struct Constants {
     static let toEditNoteSegue = "toEditNote"
+    static let defaultNoteContent = "New note"
+    static let lastUpdateKeyPath = "lastUpdate"
 }
 

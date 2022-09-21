@@ -6,18 +6,22 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-class Note {
+class Note: Object, ObjectKeyIdentifiable {
     // MARK: - PROPERTIES
-    var content: String = ""
-    var title: String?
-    var subtitle: String?
-    var isFavorite = false
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var content: String = ""
+    @Persisted var title: String? = nil
+    @Persisted var subtitle: String? = nil
+    @Persisted var isFavorite = false
+    @Persisted var lastUpdate = Date()
     
     // MARK: - INITIALIZERS
-    init(content: String, isFavorite: Bool = false) {
+    convenience init(content: String) {
+        self.init()
         self.content = content
-        self.isFavorite = isFavorite
         self.setTitleAndSubtitle()
     }
     

@@ -16,13 +16,14 @@ class EditNoteViewController: UIViewController {
     
     // MARK: - Model
     var note: Note!
+    private let dataStore = DataStore.shared
     
     // MARK: - METHODS
     
     // MARK: - @IBActions
-    
     @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
-        
+        dataStore.delete(note)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Life cycle
@@ -30,5 +31,15 @@ class EditNoteViewController: UIViewController {
         super.viewDidLoad()
 
         textView.text = note.content
+        textView.delegate = self
+    }
+}
+
+// MARK: - EXTENSIONS
+
+// MARK: - UITextViewDelegate
+extension EditNoteViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        dataStore.update(note, content: textView.text ?? "")
     }
 }

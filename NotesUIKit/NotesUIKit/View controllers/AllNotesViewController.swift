@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AllNotesViewController: UIViewController {
     
@@ -15,7 +16,9 @@ class AllNotesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Model
+    private let dataStore = DataStore.shared
     private let notes = DataStore.shared.getAllNotes()
+    private var notificationToken: NotificationToken?
     
     // MARK: - METHODS
 
@@ -29,9 +32,16 @@ class AllNotesViewController: UIViewController {
         
         // Register cell's xib
         tableView.register(NoteTableViewCell.nib, forCellReuseIdentifier: NoteTableViewCell.identifier)
+        
+        // Observers
+        setupObservers()
     }
     
-
+    // MARK: - @IBActions
+    @IBAction func addNoteButtonTapped(_ sender: UIBarButtonItem) {
+        dataStore.addNote()
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let note = sender as? Note else {
@@ -68,5 +78,29 @@ extension AllNotesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = notes[indexPath.row]
         performSegue(withIdentifier: Constants.toEditNoteSegue, sender: note)
+    }
+}
+
+// MARK: - Realm notifications
+private extension AllNotesViewController {
+    func setupObservers() {
+        // Set results notification block
+        self.notificationToken = notes.observe { (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                self.tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the TableView
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                self.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                self.tableView.endUpdates()
+            case .error(let err):
+                // An error occurred while opening the Realm file on the background worker thread
+                print("\(err)")
+            }
+        }
     }
 }

@@ -62,7 +62,13 @@
                             <constraint firstItem="dfs-8G-42K" firstAttribute="top" secondItem="lU9-yv-RXk" secondAttribute="top" id="kro-kb-r7j"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="sko-DZ-p8O"/>
+                    <navigationItem key="navigationItem" title="Notes" id="sko-DZ-p8O">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7a1-mI-soH">
+                            <connections>
+                                <action selector="addNoteButtonTapped:" destination="8Pv-xG-Ann" id="pdB-gY-zN0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dfs-8G-42K" id="puz-VD-poe"/>
                         <segue destination="jYW-An-Ewa" kind="show" identifier="toEditNote" id="woY-dg-Qz2"/>
