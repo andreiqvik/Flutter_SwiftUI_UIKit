@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notesflutter/datastore/datastore.dart';
+import 'package:notesflutter/screens/edit_note_screen.dart';
 import 'package:notesflutter/widgets/note_cell.dart';
 
 class FavoriteNotesScreen extends StatelessWidget {
@@ -28,10 +29,21 @@ class FavoriteNotesScreen extends StatelessWidget {
         itemCount: _notes.length,
         itemBuilder: (context, index) {
           final note = _notes[index];
-          return NoteCell(
-            title: note.title,
-            subtitle: note.subtitle,
-            isFavorite: note.isFavorite,
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => EditNoteScreen(
+                    note: note,
+                  ),
+                ),
+              );
+            },
+            child: NoteCell(
+              title: note.title,
+              subtitle: note.subtitle,
+              isFavorite: note.isFavorite,
+            ),
           );
         },
       ),

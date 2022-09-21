@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:notesflutter/models/note.dart';
 
 class EditNoteScreen extends StatelessWidget {
-  const EditNoteScreen({super.key});
+  // CONSTRUCTORS
+  const EditNoteScreen({super.key, required this.note});
 
+  // PROPERTIES
+  final Note note;
+
+  // BUILD METHOD
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
