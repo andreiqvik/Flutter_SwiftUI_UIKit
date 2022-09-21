@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notesflutter/models/note.dart';
 
 class EditNoteScreen extends StatefulWidget {
@@ -33,8 +34,13 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Edit'),
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Edit'),
+        trailing: CupertinoButton(
+            child: FaIcon(widget.note.isFavorite
+                ? FontAwesomeIcons.solidHeart
+                : FontAwesomeIcons.heart),
+            onPressed: () {}),
       ),
       child: SafeArea(
         child: Column(

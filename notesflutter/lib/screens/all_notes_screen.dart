@@ -17,8 +17,10 @@ class AllNotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('All notes'),
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('All notes'),
+        trailing:
+            CupertinoButton(child: const Icon(Icons.add), onPressed: () {}),
       ),
       child: ListView.separated(
         separatorBuilder: (context, index) => const Padding(
