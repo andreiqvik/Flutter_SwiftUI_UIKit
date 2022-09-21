@@ -16,7 +16,7 @@ class NoteCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Row(children: [
         CupertinoButton(
             child: FaIcon(isFavorite
@@ -28,12 +28,12 @@ class NoteCell extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title ?? "", style: Theme.of(context).textTheme.titleLarge),
+              Text(title ?? "", style: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
               const SizedBox(
                 height: 5,
               ),
               Text(subtitle ?? "",
-                  style: Theme.of(context).textTheme.bodyLarge),
+                  style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
         ),

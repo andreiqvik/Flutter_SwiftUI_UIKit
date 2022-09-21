@@ -18,6 +18,14 @@ class EditNoteViewController: UIViewController {
     var note: Note!
     
     // MARK: - METHODS
+    
+    // MARK: - @IBActions
+    
+    @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

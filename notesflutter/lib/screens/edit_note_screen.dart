@@ -37,10 +37,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
       navigationBar: CupertinoNavigationBar(
         middle: const Text('Edit'),
         trailing: CupertinoButton(
-            child: FaIcon(widget.note.isFavorite
-                ? FontAwesomeIcons.solidHeart
-                : FontAwesomeIcons.heart),
-            onPressed: () {}),
+            child: const FaIcon(FontAwesomeIcons.trashCan), onPressed: () {}),
       ),
       child: SafeArea(
         child: Column(

@@ -22,6 +22,13 @@ struct EditNoteScreen: View {
     // MARK: - BODY
     var body: some View {
         TextEditor(text: $content).padding(.all)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button(action: {
+                    
+                }, label: {
+                    Label("", systemImage: "trash")
+                })
+            }
     }
 }
 

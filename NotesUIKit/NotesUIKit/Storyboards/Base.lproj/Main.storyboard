@@ -97,7 +97,13 @@
                             <constraint firstItem="URJ-at-Nv0" firstAttribute="leading" secondItem="5bs-yQ-rOo" secondAttribute="leading" constant="8" id="jdm-cj-gS3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" id="HCj-qT-fwb"/>
+                    <navigationItem key="navigationItem" title="Edit" id="HCj-qT-fwb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ua1-cj-7Ny">
+                            <connections>
+                                <action selector="deleteButtonTapped:" destination="jYW-An-Ewa" id="091-qf-Px9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="textView" destination="URJ-at-Nv0" id="2eB-fS-Eu1"/>
                     </connections>
