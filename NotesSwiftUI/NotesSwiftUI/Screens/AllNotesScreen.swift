@@ -27,6 +27,13 @@ struct AllNotesScreen: View {
             }
             .scrollContentBackground(.hidden)
             .navigationBarTitle("Notes").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button(action: {
+                    
+                }, label: {
+                    Label("", systemImage: "plus")
+                })
+                }
         }
     }
 }
