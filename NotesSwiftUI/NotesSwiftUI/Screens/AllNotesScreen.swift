@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AllNotesScreen: View {
     // MARK: - PROPERTIES
     
     // MARK: - Model
-    private let notes = DataStore.shared.getAllNotes()
+    let dataStore = DataStore.shared
+    
+    @ObservedResults(
+      Note.self
+    ) var notes
     
     // MARK: - BODY
     var body: some View {
@@ -29,7 +34,7 @@ struct AllNotesScreen: View {
             .navigationBarTitle("Notes").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
-                    
+                    dataStore.addNote()
                 }, label: {
                     Label("", systemImage: "plus")
                 })

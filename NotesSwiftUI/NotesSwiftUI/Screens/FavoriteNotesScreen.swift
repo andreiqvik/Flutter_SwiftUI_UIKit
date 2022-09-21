@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct FavoriteNotesScreen: View {
     // MARK: - PROPERTIES
     
     // MARK: - Model
-    private let notes = DataStore.shared.getFavoriteNotes()
+    @ObservedResults(
+      Note.self,
+      where: { $0.isFavorite == false }
+    ) var notes
     
     // MARK: - BODY
     var body: some View {

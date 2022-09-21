@@ -6,28 +6,31 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct EditNoteScreen: View {
     // MARK: - PROPERTIES
     
     // MARK: - Model
-    let note: Note
-    @State private var content: String = "Note"
-    
-    // MARK: - INITIALIZERS
-    init(note: Note) {
-        self.note = note
-    }
+    @ObservedRealmObject var note: Note
+    @State private var content: String = ""
+    let dataStore = DataStore.shared
     
     // MARK: - BODY
     var body: some View {
-        TextEditor(text: $content).padding(.all)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
+        TextEditor(text: $content)
+            .onChange(of: content) { newValue in
+                dataStore.update(note, content: content)
+            }
+            .padding(.all)          .navigationBarTitle("Edit").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
                     
                 }, label: {
                     Label("", systemImage: "trash")
                 })
+            }.onAppear {
+                content = note.content
             }
     }
 }

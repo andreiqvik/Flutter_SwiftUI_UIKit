@@ -47,6 +47,10 @@ class DataStore {
     }
     
     func update(_ note: Note, content: String? = nil) {
+        guard let note = note.thaw() else {
+            return
+        }
+        
         try! realm.write {
             note.lastUpdate = Date()
             if let content = content {
