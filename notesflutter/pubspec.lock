@@ -36,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
-  crypto:
-    dependency: transitive
-    description:
-      name: crypto
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -57,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  ffi:
+    dependency: transitive
+    description:
+      name: ffi
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -81,13 +81,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "10.2.1"
-  hive:
+  isar:
     dependency: "direct main"
     description:
-      name: hive
+      name: isar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.3"
+    version: "3.0.0"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.4"
   lints:
     dependency: transitive
     description:
@@ -170,13 +177,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
-  typed_data:
-    dependency: transitive
-    description:
-      name: typed_data
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.1"
   vector_math:
     dependency: transitive
     description:
