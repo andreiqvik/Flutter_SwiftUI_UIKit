@@ -38,8 +38,30 @@ class DataStore {
   List<Note> getFavoriteNotes() {
     return [];
   }
+
   // UPDATE
+  Future<void> updateNote({required Note note, String? content}) async {
+    note.lastUpdate = DateTime.now();
+    if (content != null) {
+      note.content = content;
+      note.setTitleAndSubtitle();
+    }
+    await isar.writeTxn(() async {
+      isar.notes.put(note);
+    });
+  }
+
+  Future<void> toggleFavorite({required Note note}) async {
+    note.isFavorite = !note.isFavorite;
+    await isar.writeTxn(() async {
+      isar.notes.put(note);
+    });
+  }
 
   // DELETE
-
+  Future<void> deleteNote({required Note note}) async {
+    await isar.writeTxn(() async {
+      await isar.notes.delete(note.id);
+    });
+  }
 }
