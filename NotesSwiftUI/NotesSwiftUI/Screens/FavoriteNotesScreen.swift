@@ -22,16 +22,18 @@ struct FavoriteNotesScreen: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            List {
-                ForEach (notes) { note in
-                    NavigationLink(destination: {
-                        EditNoteScreen(note: note)
-                    }, label: {
-                        NoteCell(note: note)
-                    })
+            ScrollView {
+                LazyVStack {
+                    ForEach (notes) { note in
+                        NavigationLink(destination: {
+                            EditNoteScreen(note: note)
+                        }, label: {
+                            NoteCell(note: note)
+                        })
+                    }
+                    Spacer()
                 }
             }
-            .scrollContentBackground(.hidden)
             .navigationBarTitle("Favorite notes").navigationBarTitleDisplayMode(.inline)
         }
     }

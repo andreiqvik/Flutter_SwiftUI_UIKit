@@ -41,6 +41,10 @@ class DataStore {
     
     // MARK: - UPDATE
     func toggleFavorite(for note: Note) {
+        guard let note = note.thaw() else {
+            return
+        }
+        
         try! realm.write() {
             note.isFavorite.toggle()
         }

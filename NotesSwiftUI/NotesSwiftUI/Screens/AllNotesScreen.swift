@@ -23,16 +23,18 @@ struct AllNotesScreen: View {
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            List {
-                ForEach (notes) { note in
-                    NavigationLink(destination: {
-                        EditNoteScreen(note: note)
-                    }, label: {
-                        NoteCell(note: note)
-                    })
+            ScrollView() {
+                LazyVStack {
+                    ForEach (notes) { note in
+                        NavigationLink(destination: {
+                            EditNoteScreen(note: note)
+                        }, label: {
+                            NoteCell(note: note)
+                        })
+                    }
+                    Spacer()
                 }
             }
-            .scrollContentBackground(.hidden)
             .navigationBarTitle("Notes").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
@@ -40,7 +42,7 @@ struct AllNotesScreen: View {
                 }, label: {
                     Label("", systemImage: "plus")
                 })
-                }
+            }
         }
     }
 }

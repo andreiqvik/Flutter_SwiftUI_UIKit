@@ -24,7 +24,7 @@ struct NoteView: View {
     
     // MARK: - BODY
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack(spacing: 5) {
                 Button(action: {
                     action()
@@ -32,11 +32,12 @@ struct NoteView: View {
                     Label("", systemImage: isFavorite ? "heart.fill" : "heart")
                 })
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(title ?? "").font(.headline)
-                    Text(subtitle ?? "").font(.subheadline)
+                    Text(title ?? "").font(.headline).foregroundColor(Color.black)
+                    Text(subtitle ?? "").font(.subheadline).foregroundColor(Color.black)
                 }
             }
-        }
+            Divider()
+        }.padding(.vertical, 10.0).padding(.horizontal, 30.0)
     }
 }
 
