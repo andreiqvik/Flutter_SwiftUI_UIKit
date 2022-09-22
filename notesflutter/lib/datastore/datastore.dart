@@ -1,22 +1,36 @@
+import 'package:notesflutter/constants/constants.dart';
 import 'package:notesflutter/models/note.dart';
+import 'package:realm/realm.dart';
 
 class DataStore {
   // SINGLETON
   DataStore._();
   static final shared = DataStore._();
 
+  // PROPERTIES
+  var config = Configuration.local([Note.schema]);
+  late var realm = Realm(config);
+
+  // METHODS
+
   // CREATE
+  void addNote() {
+    /*
+    final note = Note(ObjectId(), Constants.defaultNoteContent, DateTime.now());
+    realm.write(() {
+      realm.add(note);
+    });
+    */
+  }
 
   // READ
-  List<Note> getAllNotes() {
-    return [];
+  RealmResults<Note> getAllNotes() {
+    return realm.all<Note>();
   }
 
-  List<Note> getFavoriteNotes() {
-    final notes = getAllNotes();
-    return notes.where((note) => note.isFavorite).toList();
+  RealmResults<Note> getFavoriteNotes() {
+    return realm.all<Note>().query("isFavorite == true");
   }
-
   // UPDATE
 
   // DELETE

@@ -4,7 +4,7 @@ part 'note.g.dart';
 @RealmModel()
 class _Note {
   @PrimaryKey()
-  late int id;
+  late String id;
   late String content;
   String? title;
   String? subtitle;

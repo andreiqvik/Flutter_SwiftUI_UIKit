@@ -10,7 +10,7 @@ class Note extends _Note with RealmEntity, RealmObject {
   static var _defaultsSet = false;
 
   Note(
-    int id,
+    String id,
     String content,
     DateTime lastUpdate, {
     String? title,
@@ -33,9 +33,9 @@ class Note extends _Note with RealmEntity, RealmObject {
   Note._();
 
   @override
-  int get id => RealmObject.get<int>(this, 'id') as int;
+  String get id => RealmObject.get<String>(this, 'id') as String;
   @override
-  set id(int value) => throw RealmUnsupportedSetError();
+  set id(String value) => throw RealmUnsupportedSetError();
 
   @override
   String get content => RealmObject.get<String>(this, 'content') as String;
@@ -72,7 +72,7 @@ class Note extends _Note with RealmEntity, RealmObject {
   static SchemaObject _initSchema() {
     RealmObject.registerFactory(Note._);
     return const SchemaObject(Note, 'Note', [
-      SchemaProperty('id', RealmPropertyType.int, primaryKey: true),
+      SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
       SchemaProperty('content', RealmPropertyType.string),
       SchemaProperty('title', RealmPropertyType.string, optional: true),
       SchemaProperty('subtitle', RealmPropertyType.string, optional: true),
