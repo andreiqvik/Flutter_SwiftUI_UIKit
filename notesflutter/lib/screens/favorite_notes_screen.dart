@@ -10,7 +10,7 @@ class FavoriteNotesScreen extends StatelessWidget {
   // PROPERTIES
 
   // Model
-  final _notes = DataStore.shared.getFavoriteNotes();
+  final _notes = [];
 
   // BUILD METHOD
   @override

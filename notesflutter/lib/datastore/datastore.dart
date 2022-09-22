@@ -1,23 +1,33 @@
+import 'package:isar/isar.dart';
 import 'package:notesflutter/constants/constants.dart';
 import 'package:notesflutter/models/note.dart';
 
 class DataStore {
-  // SINGLETON
+  // PROPERTIES
+
+  // Singleton
   DataStore._();
   static final shared = DataStore._();
 
-  // PROPERTIES
+  // Isar
+  late Isar isar;
 
   // METHODS
 
+  // INITIALIZATION
+  Future<void> initialize() async {
+    isar = await Isar.open([NoteSchema]);
+  }
+
   // CREATE
-  void addNote() {
-    /*
-    final note = Note(ObjectId(), Constants.defaultNoteContent, DateTime.now());
-    realm.write(() {
-      realm.add(note);
+  Future<void> addNote() async {
+    final note = Note()
+      ..content = Constants.defaultNoteContent
+      ..setTitleAndSubtitle();
+
+    await isar.writeTxn(() async {
+      await isar.notes.put(note);
     });
-    */
   }
 
   // READ

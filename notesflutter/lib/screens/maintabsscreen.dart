@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notesflutter/screens/all_notes_screen.dart';
 import 'package:notesflutter/screens/favorite_notes_screen.dart';
 
@@ -7,10 +8,12 @@ class CupertinoTabBarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      debugShowCheckedModeBanner: false,
-      theme: CupertinoThemeData(brightness: Brightness.light),
-      home: MainTabsScreen(),
+    return const ProviderScope(
+      child: CupertinoApp(
+        debugShowCheckedModeBanner: false,
+        theme: CupertinoThemeData(brightness: Brightness.light),
+        home: MainTabsScreen(),
+      ),
     );
   }
 }

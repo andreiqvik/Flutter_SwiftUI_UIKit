@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:isar/isar.dart';
 part 'note.g.dart';
 
@@ -16,7 +15,9 @@ class Note {
   void setTitleAndSubtitle() {
     final rows = content?.split("\n");
     if (rows != null) {
-      title = rows.firstOrNull;
+      if (rows.isNotEmpty) {
+        title = rows[0];
+      }
       if (rows.length > 1) {
         subtitle = rows[1];
       }
