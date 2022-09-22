@@ -43,6 +43,7 @@ class AllNotesScreen extends ConsumerWidget {
                   ),
                 ),
               );
+              dataStore.updateNote(note: note);
             },
             child: NoteCell(
               title: note.title,

@@ -59,6 +59,9 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
                     minLines: null,
                     maxLines: null,
                     controller: _textController,
+                    onChanged: (content) {
+                      dataStore.updateNote(note: widget.note, content: content);
+                    },
                   ),
                 ),
               ),

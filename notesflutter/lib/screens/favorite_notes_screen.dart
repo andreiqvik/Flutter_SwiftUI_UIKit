@@ -11,6 +11,7 @@ class FavoriteNotesScreen extends ConsumerWidget {
   // BUILD METHOD
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dataStore = ref.read(dataStoreProvider);
     final notes = ref.watch(favoriteNotesStreamProvider).value ?? [];
 
     return CupertinoPageScaffold(
@@ -36,6 +37,7 @@ class FavoriteNotesScreen extends ConsumerWidget {
                   ),
                 ),
               );
+              dataStore.updateNote(note: note);
             },
             child: NoteCell(
               title: note.title,
