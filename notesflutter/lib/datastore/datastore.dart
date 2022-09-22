@@ -38,7 +38,12 @@ class DataStore {
   }
 
   Stream<List<Note>> getFavoriteNotesStream() {
-    final notesQuery = isar.notes.where().sortByLastUpdateDesc().build();
+    final notesQuery = isar.notes
+        .where()
+        .filter()
+        .isFavoriteEqualTo(true)
+        .sortByLastUpdateDesc()
+        .build();
     final stream = notesQuery.watch(fireImmediately: true);
     return stream;
   }
