@@ -40,9 +40,9 @@ class MainTabsScreen extends StatelessWidget {
         return CupertinoTabView(
           builder: (BuildContext context) {
             if (index == 0) {
-              return AllNotesScreen();
+              return const AllNotesScreen();
             } else {
-              return FavoriteNotesScreen();
+              return const FavoriteNotesScreen();
             }
           },
         );

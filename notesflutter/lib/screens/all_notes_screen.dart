@@ -1,24 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notesflutter/datastore/datastore.dart';
 import 'package:notesflutter/providers/providers.dart';
 import 'package:notesflutter/screens/edit_note_screen.dart';
 import 'package:notesflutter/widgets/note_cell.dart';
 
 class AllNotesScreen extends ConsumerWidget {
   // CONSTRUCTORS
-  AllNotesScreen({super.key});
-
-  // PROPERTIES
-
-  // Model
-  final _notes = [];
+  const AllNotesScreen({super.key});
 
   // BUILD METHOD
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dataStore = ref.read(dataStoreProvider);
+    final notes = ref.watch(allNotesStreamProvider).value ?? [];
+
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: const Text('All notes'),
@@ -35,9 +31,9 @@ class AllNotesScreen extends ConsumerWidget {
             color: Colors.grey,
           ),
         ),
-        itemCount: _notes.length,
+        itemCount: notes.length,
         itemBuilder: (context, index) {
-          final note = _notes[index];
+          final note = notes[index];
           return GestureDetector(
             onTap: () {
               Navigator.of(context).push(

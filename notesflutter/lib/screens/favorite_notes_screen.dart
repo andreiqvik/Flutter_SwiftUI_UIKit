@@ -1,20 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:notesflutter/datastore/datastore.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:notesflutter/providers/providers.dart';
 import 'package:notesflutter/screens/edit_note_screen.dart';
 import 'package:notesflutter/widgets/note_cell.dart';
 
-class FavoriteNotesScreen extends StatelessWidget {
-  FavoriteNotesScreen({super.key});
-
-  // PROPERTIES
-
-  // Model
-  final _notes = [];
+class FavoriteNotesScreen extends ConsumerWidget {
+  const FavoriteNotesScreen({super.key});
 
   // BUILD METHOD
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notes = ref.watch(favoriteNotesStreamProvider).value ?? [];
+
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('All notes'),
@@ -26,9 +24,9 @@ class FavoriteNotesScreen extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
-        itemCount: _notes.length,
+        itemCount: notes.length,
         itemBuilder: (context, index) {
-          final note = _notes[index];
+          final note = notes[index];
           return GestureDetector(
             onTap: () {
               Navigator.of(context).push(

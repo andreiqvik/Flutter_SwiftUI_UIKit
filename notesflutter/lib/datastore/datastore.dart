@@ -31,12 +31,16 @@ class DataStore {
   }
 
   // READ
-  List<Note> getAllNotes() {
-    return [];
+  Stream<List<Note>> getAllNotesStream() {
+    final notesQuery = isar.notes.where().sortByLastUpdateDesc().build();
+    final stream = notesQuery.watch(fireImmediately: true);
+    return stream;
   }
 
-  List<Note> getFavoriteNotes() {
-    return [];
+  Stream<List<Note>> getFavoriteNotesStream() {
+    final notesQuery = isar.notes.where().sortByLastUpdateDesc().build();
+    final stream = notesQuery.watch(fireImmediately: true);
+    return stream;
   }
 
   // UPDATE
