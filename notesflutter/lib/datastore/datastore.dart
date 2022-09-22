@@ -1,6 +1,5 @@
 import 'package:notesflutter/constants/constants.dart';
 import 'package:notesflutter/models/note.dart';
-import 'package:realm/realm.dart';
 
 class DataStore {
   // SINGLETON
@@ -8,8 +7,6 @@ class DataStore {
   static final shared = DataStore._();
 
   // PROPERTIES
-  var config = Configuration.local([Note.schema]);
-  late var realm = Realm(config);
 
   // METHODS
 
@@ -24,12 +21,12 @@ class DataStore {
   }
 
   // READ
-  RealmResults<Note> getAllNotes() {
-    return realm.all<Note>();
+  List<Note> getAllNotes() {
+    return [];
   }
 
-  RealmResults<Note> getFavoriteNotes() {
-    return realm.all<Note>().query("isFavorite == true");
+  List<Note> getFavoriteNotes() {
+    return [];
   }
   // UPDATE
 

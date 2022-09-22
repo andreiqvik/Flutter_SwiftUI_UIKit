@@ -1,9 +1,4 @@
-import 'package:realm/realm.dart';
-part 'note.g.dart';
-
-@RealmModel()
-class _Note {
-  @PrimaryKey()
+class Note {
   late String id;
   late String content;
   String? title;
