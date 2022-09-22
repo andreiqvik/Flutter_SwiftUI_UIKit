@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct NotesSwiftUIApp: App {
+    
+    // MARK: - PROPERTIES
+    @StateObject var dataStore = DataStore.shared
+    
     var body: some Scene {
         WindowGroup {
-            MainTabsScreen()
+            MainTabsScreen().environmentObject(dataStore)
         }
     }
 }

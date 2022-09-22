@@ -14,7 +14,7 @@ struct EditNoteScreen: View {
     // MARK: - Model
     @ObservedRealmObject var note: Note
     @State private var content: String = ""
-    let dataStore = DataStore.shared
+    @EnvironmentObject var dataStore: DataStore
     
     // MARK: - Environment variables
     @Environment(\.presentationMode) var presentationMode

@@ -12,7 +12,7 @@ struct AllNotesScreen: View {
     // MARK: - PROPERTIES
     
     // MARK: - Model
-    let dataStore = DataStore.shared
+    @EnvironmentObject var dataStore: DataStore
     
     @ObservedResults(
       Note.self,

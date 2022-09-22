@@ -6,11 +6,9 @@
 //
 
 import Foundation
-
-import Foundation
 import RealmSwift
 
-class DataStore {
+class DataStore: ObservableObject {
     
     // MARK: - PROPERTIES
     

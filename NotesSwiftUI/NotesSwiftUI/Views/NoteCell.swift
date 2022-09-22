@@ -14,7 +14,7 @@ struct NoteCell: View {
     
     // MARK: - Model
     @ObservedRealmObject var note: Note
-    let dataStore = DataStore.shared
+    @EnvironmentObject var dataStore: DataStore
     
     // MARK: - BODY
     var body: some View {
