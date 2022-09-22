@@ -36,6 +36,7 @@ struct EditNoteScreen: View {
                 })
             }.onAppear {
                 content = note.content
+                dataStore.update(note)
             }
     }
 }

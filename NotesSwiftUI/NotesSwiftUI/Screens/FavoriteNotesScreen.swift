@@ -14,7 +14,9 @@ struct FavoriteNotesScreen: View {
     // MARK: - Model
     @ObservedResults(
       Note.self,
-      where: { $0.isFavorite == true }
+      where: { $0.isFavorite == true },
+      sortDescriptor:
+        SortDescriptor(keyPath: Constants.lastUpdateKeyPath, ascending: false)
     ) var notes
     
     // MARK: - BODY

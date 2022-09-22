@@ -15,7 +15,9 @@ struct AllNotesScreen: View {
     let dataStore = DataStore.shared
     
     @ObservedResults(
-      Note.self
+      Note.self,
+      sortDescriptor:
+        SortDescriptor(keyPath: Constants.lastUpdateKeyPath, ascending: false)
     ) var notes
     
     // MARK: - BODY
