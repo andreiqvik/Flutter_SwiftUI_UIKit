@@ -7,11 +7,13 @@ class NoteCell extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subtitle,
-      required this.isFavorite});
+      required this.isFavorite,
+      required this.buttonAction});
 
   final String? title;
   final String? subtitle;
   final bool isFavorite;
+  final Function buttonAction;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class NoteCell extends StatelessWidget {
             child: FaIcon(isFavorite
                 ? FontAwesomeIcons.solidHeart
                 : FontAwesomeIcons.heart),
-            onPressed: () {}),
+            onPressed: () {
+              buttonAction();
+            }),
         const SizedBox(width: 5),
         Expanded(
           child: Column(

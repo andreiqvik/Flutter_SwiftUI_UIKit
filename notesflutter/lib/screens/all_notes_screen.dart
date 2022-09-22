@@ -49,6 +49,9 @@ class AllNotesScreen extends ConsumerWidget {
               title: note.title,
               subtitle: note.subtitle,
               isFavorite: note.isFavorite,
+              buttonAction: () {
+                dataStore.toggleFavorite(note: note);
+              },
             ),
           );
         },
