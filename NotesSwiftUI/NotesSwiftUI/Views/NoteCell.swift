@@ -19,7 +19,9 @@ struct NoteCell: View {
     // MARK: - BODY
     var body: some View {
         NoteView(title: note.title, subtitle: note.subtitle, isFavorite: note.isFavorite, action: {
-            dataStore.toggleFavorite(for: note)
+            withAnimation {
+                dataStore.toggleFavorite(for: note)
+            }
         })
     }
 }

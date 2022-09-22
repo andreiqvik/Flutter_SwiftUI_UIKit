@@ -38,7 +38,9 @@ struct AllNotesScreen: View {
             .navigationBarTitle("Notes").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
-                    dataStore.addNote()
+                    withAnimation {
+                        dataStore.addNote()
+                    }
                 }, label: {
                     Label("", systemImage: "plus")
                 })
