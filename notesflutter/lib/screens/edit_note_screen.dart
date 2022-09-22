@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notesflutter/models/note.dart';
+import 'package:notesflutter/providers/providers.dart';
 
 class EditNoteScreen extends StatefulWidget {
   // CONSTRUCTORS
@@ -32,30 +34,38 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
   // BUILD METHOD
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: const Text('Edit'),
-        trailing: CupertinoButton(
-            child: const FaIcon(FontAwesomeIcons.trashCan), onPressed: () {}),
-      ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CupertinoTextField(
-                  decoration: const BoxDecoration(border: null),
-                  expands: true,
-                  minLines: null,
-                  maxLines: null,
-                  controller: _textController,
+    return Consumer(builder: (context, ref, child) {
+      final dataStore = ref.read(dataStoreProvider);
+
+      return CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: const Text('Edit'),
+          trailing: CupertinoButton(
+              child: const FaIcon(FontAwesomeIcons.trashCan),
+              onPressed: () {
+                dataStore.deleteNote(note: widget.note);
+                Navigator.pop(context);
+              }),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CupertinoTextField(
+                    decoration: const BoxDecoration(border: null),
+                    expands: true,
+                    minLines: null,
+                    maxLines: null,
+                    controller: _textController,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
