@@ -65,7 +65,7 @@ extension FavoriteNotesViewController: UITableViewDataSource {
         cell.bodyLabel.text = note.subtitle
         cell.isFavorite = note.isFavorite
         cell.delegate = self
-        cell.note = note
+        cell.model = note
         return cell
     }
 }
@@ -80,8 +80,8 @@ extension FavoriteNotesViewController: UITableViewDelegate {
 
 // MARK: - NoteTableViewCellDelegate
 extension FavoriteNotesViewController: NoteTableViewCellDelegate {
-    func favoriteButtonTapped(for note: Note?) {
-        guard let note = note else {
+    func favoriteButtonTapped(for model: Any?) {
+        guard let note = model as? Note else {
             return
         }
         dataStore.toggleFavorite(for: note)

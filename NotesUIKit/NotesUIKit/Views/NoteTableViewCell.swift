@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NoteTableViewCellDelegate: AnyObject {
-    func favoriteButtonTapped(for note: Note?)
+    func favoriteButtonTapped(for note: Any?)
 }
 
 class NoteTableViewCell: UITableViewCell {
@@ -22,7 +22,7 @@ class NoteTableViewCell: UITableViewCell {
     
     // MARK: - Delegate
     weak var delegate: NoteTableViewCellDelegate?
-    var note: Note?
+    var model: Any?
     
     // MARK: - Xib registering
     static let identifier = "NoteTableViewCell"
@@ -45,7 +45,7 @@ class NoteTableViewCell: UITableViewCell {
     
     // MARK: - @IBActions
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        delegate?.favoriteButtonTapped(for: note)
+        delegate?.favoriteButtonTapped(for: model)
     }
     
     // MARK: - Favorite button configuration
