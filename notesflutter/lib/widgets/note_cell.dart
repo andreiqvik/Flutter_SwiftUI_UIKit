@@ -28,7 +28,9 @@ class NoteCell extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title ?? "", style: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+              Text(title ?? "",
+                  style: const TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 5,
               ),
