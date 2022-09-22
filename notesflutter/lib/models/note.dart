@@ -1,8 +1,12 @@
+import 'package:isar/isar.dart';
+part 'note.g.dart';
+
+@collection
 class Note {
-  late String id;
-  late String content;
+  Id id = Isar.autoIncrement;
+  String? content;
   String? title;
   String? subtitle;
   bool isFavorite = false;
-  late DateTime lastUpdate;
+  DateTime lastUpdate = DateTime.now();
 }
