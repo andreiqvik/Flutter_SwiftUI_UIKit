@@ -1,10 +1,13 @@
-class Note {
-  // PROPERTIES
-  String content;
-  String? title;
-  String? subtitle = "Subtitle";
-  bool isFavorite = false;
+import 'package:realm/realm.dart';
+part 'note.g.dart';
 
-  // CONSTRUCTORS
-  Note({required this.content, this.isFavorite = false});
+@RealmModel()
+class _Note {
+  @PrimaryKey()
+  late int id;
+  late String content;
+  String? title;
+  String? subtitle;
+  bool isFavorite = false;
+  late DateTime lastUpdate;
 }
