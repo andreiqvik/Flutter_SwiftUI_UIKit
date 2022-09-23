@@ -63,6 +63,7 @@ extension FavoriteNotesViewController: UITableViewDataSource {
         let note = notes[indexPath.row]
         cell.titleLabel.text = note.title
         cell.bodyLabel.text = note.subtitle
+        cell.bodyLabel.isHidden = note.subtitle == nil
         cell.isFavorite = note.isFavorite
         cell.delegate = self
         cell.model = note
