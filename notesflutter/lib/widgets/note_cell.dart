@@ -35,11 +35,18 @@ class NoteCell extends StatelessWidget {
               Text(title ?? "",
                   style: const TextStyle(
                       fontSize: 16.0, fontWeight: FontWeight.bold)),
-              const SizedBox(
-                height: 5,
+              Visibility(
+                visible: subtitle != null,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(subtitle ?? "",
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
               ),
-              Text(subtitle ?? "",
-                  style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
         ),
