@@ -33,7 +33,9 @@ struct NoteView: View {
                 })
                 VStack(alignment: .leading, spacing: 5) {
                     Text(title ?? "").font(.headline).foregroundColor(Color.black)
-                    Text(subtitle ?? "").font(.subheadline).foregroundColor(Color.black)
+                    if let subtitle = subtitle {
+                        Text(subtitle).font(.subheadline).foregroundColor(Color.black)
+                    }
                 }
             }
             Divider()
