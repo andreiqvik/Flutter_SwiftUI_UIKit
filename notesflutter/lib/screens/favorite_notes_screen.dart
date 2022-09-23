@@ -30,8 +30,8 @@ class FavoriteNotesScreen extends ConsumerWidget {
           final note = notes[index];
           return GestureDetector(
             behavior: HitTestBehavior.translucent,
-            onTap: () {
-              Navigator.of(context).push(
+            onTap: () async {
+              await Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => EditNoteScreen(
                     note: note,
