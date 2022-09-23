@@ -36,8 +36,8 @@ class AllNotesScreen extends ConsumerWidget {
           final note = notes[index];
           return GestureDetector(
             behavior: HitTestBehavior.translucent,
-            onTap: () async {
-              await Navigator.of(context).push(
+            onTap: () {
+              Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => EditNoteScreen(
                     note: note,
