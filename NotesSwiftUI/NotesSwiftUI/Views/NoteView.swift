@@ -37,6 +37,8 @@ struct NoteView: View {
                         Text(subtitle).font(.subheadline).foregroundColor(Color.black)
                     }
                 }
+                Spacer()
+                Image(systemName: "chevron.right").foregroundColor(.gray)
             }
             Divider().padding(.vertical, 10.0)
         }.padding(.vertical, 10.0).padding(.horizontal, 30.0)
