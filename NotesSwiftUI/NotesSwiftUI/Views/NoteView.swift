@@ -39,6 +39,7 @@ struct NoteView: View {
                 }
             }
             Divider()
+                .padding(.vertical, 5.0)
         }.padding(.vertical, 10.0).padding(.horizontal, 30.0)
     }
 }
