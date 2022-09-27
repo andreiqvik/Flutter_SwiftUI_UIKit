@@ -16,7 +16,7 @@ class FavoriteNotesScreen extends ConsumerWidget {
 
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('All notes'),
+        middle: Text('Favorite notes'),
       ),
       child: ListView.separated(
         separatorBuilder: (context, index) => const Padding(

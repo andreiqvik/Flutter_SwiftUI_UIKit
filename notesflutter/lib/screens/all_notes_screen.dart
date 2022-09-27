@@ -17,7 +17,7 @@ class AllNotesScreen extends ConsumerWidget {
 
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: const Text('All notes'),
+        middle: const Text('Notes'),
         trailing: CupertinoButton(
             child: const Icon(Icons.add),
             onPressed: () {
