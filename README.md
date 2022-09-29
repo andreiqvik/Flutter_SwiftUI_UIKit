@@ -6,7 +6,7 @@ This repository contains the code of a demo note taking app built with three dif
 * SwiftUI (iOS)
 * UIKit (iOS)
 
-The code of the demo app is meant to accompany the ***"Comparing Apples to Oranges. (Battle of Flutter, SwiftUI and UIKit)"*** presentation at the GDG Helsinki meetup organized on 27.09.2022 at Qvik Oy.
+The code of the demo app is meant to accompany the ***"Comparing Apples to Oranges. (Battle of Flutter, SwiftUI and UIKit)"*** presentation at the GDG Helsinki meetup organized on 27.09.2022 at Qvik Oy. The slides can be seen [here](https://docs.google.com/presentation/d/1d013GgHntN2OLFrVkb3JzxOGkanuMyUAKSPcxVvwe64/edit#slide=id.gf3c71e86c4_0_0).
 
 ## Scope
 The apps' code contains various examples of patterns related to UI composition, dependency injection and state management specific to Flutter, SwiftUI and UIKit frameworks. Its purpose is to offer a base for comparing those frameworks.
